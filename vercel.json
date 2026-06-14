@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/api/spotify", "destination": "/api/spotify.js" }]
+}
