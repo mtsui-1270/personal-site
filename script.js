@@ -50,6 +50,7 @@ else if (hour < 18) greeting = "good afternoon,";
 else greeting = "good evening,";
 document.getElementById('greeting').textContent = greeting;
 
+//spotify api
 
 async function fetchSpotify() {
   const res = await fetch('https://personal-site-self-chi.vercel.app/api/spotify');
