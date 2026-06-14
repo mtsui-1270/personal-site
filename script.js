@@ -49,3 +49,23 @@ if (hour < 12) greeting = "good morning,";
 else if (hour < 18) greeting = "good afternoon,";
 else greeting = "good evening,";
 document.getElementById('greeting').textContent = greeting;
+
+
+async function fetchSpotify() {
+  const res = await fetch('https://personal-site-self-chi.vercel.app/api/spotify');
+  const data = await res.json();
+
+  const trackEl = document.getElementById('spotify-track');
+  const linkEl = document.getElementById('spotify-link');
+
+  if (data.playing) {
+    trackEl.textContent = `${data.title} — ${data.artist}`;
+    linkEl.href = data.url;
+  } else {
+    trackEl.textContent = 'not playing';
+    linkEl.href = '#';
+  }
+}
+
+fetchSpotify();
+setInterval(fetchSpotify, 30000);
