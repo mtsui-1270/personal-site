@@ -53,7 +53,7 @@ document.getElementById('greeting').textContent = greeting;
 //spotify api
 
 async function fetchSpotify() {
-  const res = await fetch('const res = await fetch('https://personal-site-self-chi.vercel.app/api/spotify');');
+  const res = await fetch('https://mariahtsui.vercel.app/api/spotify');
   const data = await res.json();
 
   const trackEl = document.getElementById('spotify-track');
