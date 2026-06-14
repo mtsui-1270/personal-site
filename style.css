@@ -85,7 +85,7 @@ body {
 }
 
 .navbar{
-    position: fixed;
+    position: absolute;
     top: 2rem;
     right: 8rem;
 }
@@ -130,19 +130,19 @@ body {
 }
 
 .project-item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.7rem;
 }
 
 .project-name {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: black;
 }
 
 .project-desc {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: #3b3b3d;
   margin-top: 0.2rem;
 }

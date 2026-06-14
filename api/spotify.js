@@ -1,5 +1,6 @@
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
   const client_id = process.env.SPOTIFY_CLIENT_ID;
   const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
   const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
@@ -15,19 +16,17 @@ export default async function handler(req, res) {
 
   const { access_token } = await tokenRes.json();
 
-  const spotifyRes = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
+  const spotifyRes = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
     headers: { Authorization: `Bearer ${access_token}` }
   });
 
-  if (spotifyRes.status === 204) {
-    return res.json({ playing: false });
-  }
-
   const data = await spotifyRes.json();
+  const track = data.items[0];
+
   return res.json({
-    playing: true,
-    title: data.item.name,
-    artist: data.item.artists[0].name,
-    url: data.item.external_urls.spotify
+    title: track.track.name,
+    artist: track.track.artists[0].name,
+    url: track.track.external_urls.spotify,
+    played_at: track.played_at  // this should be on track, not track.track
   });
 }
