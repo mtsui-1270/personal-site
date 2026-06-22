@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #c6e1e6;
+  font-family: 'Courier New', Courier, monospace;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10rem 2rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: #eb96b4;
+  font-weight: 900;
+}
+
+.cursor {
+  color: #eb96b4;
+  animation: blink 0.85s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.navbar {
+  position: fixed;
+  top: 2rem;
+  right: 8rem;
+  display: flex;
+  gap: 2rem;
+  z-index: 100;
+}
+
+.nav-link {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: line-through;
+}
+
+.nav-active {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #eb96b4;
+}
+
+.section-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 3rem;
+  color: #eb96b4;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-transform: lowercase;
+  text-align: center;
+}
+
+.project-list {
+  list-style: none;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.project-item {
+  margin-bottom: 1.7rem;
+}
+
+.project-name {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: black;
+}
+
+.project-desc {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  color: #3b3b3d;
+  margin-top: 0.2rem;
+}
+
+.bio-links {
+  color: #eb96b4;
+  text-decoration: none;
+}
+
+.bio-links:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  border: none;
+  border-top: 0.9px dotted #888;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.bio {
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  font-weight: 400;
+}
+
+.socials {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 25px;
+  height: 25px;
+  transition: opacity 0.2s;
+}
+
+.social-icon:hover {
+  opacity: 0.5;
+}
+
+.under-socials {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  color: #888;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.greeting {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  color: #888;
+  padding: 1.5rem 0;
+  margin-top: auto;
+}
