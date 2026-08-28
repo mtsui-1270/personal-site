@@ -71,9 +71,68 @@ async function fetchSpotify() {
   else if (diffMins < 1440) timeAgo = `${Math.floor(diffMins / 60)}h ago`;
   else timeAgo = `${Math.floor(diffMins / 1440)}d ago`;
 
-  trackEl.textContent = `${data.title} — ${data.artist} · ${timeAgo}`;
+  trackEl.textContent = `${data.title} — ${data.artist} ~ ${timeAgo}`;
   linkEl.href = data.url;
 }
 
 fetchSpotify();
 setInterval(fetchSpotify, 30000);
+
+// easter egg - click anywhere for fish
+document.addEventListener('click', (e) => {
+  const fishEmojis = ['🐟', '🐠', '🐡', '🐙'];
+  const count = Math.floor(Math.random() * 3) + 2; // 2-4 fish per click
+
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const fish = document.createElement('div');
+      fish.textContent = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+      const yPos = e.clientY + (Math.random() * 60 - 30); // near where you clicked
+      fish.style.cssText = `
+        position: fixed;
+        left: -60px;
+        top: ${yPos}px;
+        font-size: ${1 + Math.random() * 1.5}rem;
+        z-index: 9999;
+        pointer-events: none;
+        transition: left ${5 + Math.random() * 2}s linear;
+        transform: scaleX(-1)
+        
+      `;
+      document.body.appendChild(fish);
+      setTimeout(() => fish.style.left = '110vw', 50);
+      setTimeout(() => fish.remove(), 5000);
+    }, i * 150);
+  }
+});
+
+// floating bubbles
+function spawnBubble() {
+  const bubble = document.createElement('div');
+  const size = 10 + Math.random() * 30;
+  bubble.style.cssText = `
+    position: fixed;
+    bottom: -60px;
+    left: ${Math.random() * 100}vw;
+    width: ${size}px;
+    height: ${size}px;
+    border-radius: 50%;
+    border: 0px;
+    background: rgba(21, 110, 225, 0.1);
+    z-index: 9999;
+    pointer-events: none;
+    transition: bottom ${5 + Math.random() * 5}s ease-in, opacity ${20 + Math.random() * 5}s ease-in;
+    opacity: 1;
+  `;
+  document.body.appendChild(bubble);
+
+  setTimeout(() => {
+    bubble.style.bottom = '110vh';
+    bubble.style.opacity = '0';
+  }, 100);
+
+  setTimeout(() => bubble.remove(), 12000);
+}
+
+// spawn a bubble every 1.5 seconds
+setInterval(spawnBubble, 1500);
